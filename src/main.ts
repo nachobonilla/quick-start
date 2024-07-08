@@ -28,8 +28,17 @@ const memoryClient = createMemoryClient();
 async function runApp() {
 	// Initialize the html
 	let vm = await memoryClient.transport.tevm.getVm();
+	let counter = await memoryClient.tevmDeploy({
+		from: prefundedAccounts[0],
+		abi: Counter.abi,
+		bytecode: `${Counter.bytecode}`,
+		args: [],
+	  })
+
+		console.log(`counter ${JSON.stringify(counter, (_, v) => typeof v === "bigint"? v.toString():v)}`);
+	await memoryClient.tevmMine()
 	try {
-		let account = await vm.stateManager.getAccount({address: EthjsAddress.fromString(`${`0x${'77'.repeat(20)}`}`)})
+		let account = await vm.stateManager.getAccount({address: EthjsAddress.fromString(counter.createdAddress)})
 	}
 
 	catch(err){
