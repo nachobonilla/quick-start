@@ -6,7 +6,6 @@ import { SimpleContract } from "tevm/contract";
 // https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-the-workspace-version-of-typescript
 // > Typescript: Select Typescript version: Use Workspace Version
 import { Counter } from "../contracts/Counter.s.sol";
-
 // This counter contract got imported from a solidity file directly into TypeScript
 // Logging counter contract to see what properties it has
 // If we add natspec comments to the contract they will also show up here
