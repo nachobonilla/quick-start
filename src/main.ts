@@ -27,7 +27,7 @@ const memoryClient = createMemoryClient();
  */
 async function runApp() {
 	// Initialize the html
-	let vm = await memoryClient.transport.tevm.getVm();
+	let vm = await memoryClient.tevm.getVm();
 	let counter = await memoryClient.tevmDeploy({
 		from: prefundedAccounts[0],
 		abi: Counter.abi,
